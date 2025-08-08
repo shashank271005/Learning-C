@@ -1,19 +1,30 @@
 #include <stdio.h>
 
-// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
-// fibonacci(n) = fibonacci(n-1) + fibonacci(n-2);
 
-int fibonacci(int);
-
-int fibonacci(int n){
-    if(n == 1 || n==2){
-        return n-1;
-    }
-    return fibonacci(n-1) + fibonacci(n-2);
+int* sum(int a, int b){
+    int s = a+b;
+    int* ptr = &s;
+    printf("The sum is %d\n", s);
+    return ptr;
 }
- 
+
+float* average(int a, int b){
+    float avg =  (a+b)/2.0;
+    float * ptr = &avg;
+    printf("The average is %f\n", avg);
+    return ptr;
+}
+
 int main(){
-    int n = 7;
-    printf("The value of fibonacci series at %d is %d", n, fibonacci(n));
+    int x = 4; 
+    int y = 6;
+    int* ptr1;
+    float* ptr2;
+
+    ptr1 = sum(x,y);
+    ptr2 = average(x,y);
+
+    printf("The address of sum is %u and of average is %u", ptr1, ptr2 );
+
     return 0;
 }
